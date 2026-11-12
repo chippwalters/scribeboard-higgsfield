@@ -1,0 +1,17 @@
+{
+  "_comment": [
+    "The palette's colours (scripts/palette.py, load_file). name is the colour as the image model reads it (ink",
+    "is used as 'pure-<name>', so keep it one word); hex is drawn on the palette card and in the board's flow arrows.",
+    "Every colour must be darker (luminance, PIL \"L\") than the styles' module.json ink_threshold (200), or the",
+    "pipeline would not see it as ink; the board is always white. arrows: each flow arrow's colour is picked with",
+    "these weights (seeded per arrow; normalised to sum 1). label and description are the option text on the",
+    "palette question."
+  ],
+  "label": "Neutral",
+  "description": "Black pen with one muted blue accent.",
+  "colours": {
+    "ink": {"name": "black", "hex": "#000000", "_use": "line work and most lettering"},
+    "main": {"name": "muted blue", "hex": "#3D6A99", "_use": "the one accent: emphasis words, arrows, key highlights, light shading"}
+  },
+  "arrows": {"ink": 0.6, "main": 0.4}
+}

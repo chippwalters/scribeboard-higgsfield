@@ -1,0 +1,18 @@
+# scribe-higgsfield: the one combined Python 3.12 environment, installed by scripts/install.py into the skill's
+# private folder (never system-wide). Same pins on Windows x64, macOS on Apple Silicon and Linux x64.
+# Pictures and narration audio come from the Higgsfield MCP; everything here runs locally.
+pillow==12.3.0
+numpy==2.4.6
+scipy==1.18.0
+opencv-python-headless==4.13.0.92
+scikit-image==0.26.0
+markdown-it-py==3.0.0
+# speech check (faster-whisper on the CPU, int8) and audio decoding (PyAV replaces ffprobe)
+faster-whisper==1.2.1
+ctranslate2==4.7.2
+av==17.0.1
+huggingface_hub==0.36.2
+tokenizers==0.22.2
+onnxruntime==1.26.0
+# a private FFmpeg when the user has none (or one without libx264, aac, libmp3lame, loudnorm)
+imageio-ffmpeg==0.8.1

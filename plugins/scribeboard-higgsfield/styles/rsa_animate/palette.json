@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "The style's colours, the one place to change them (scripts/palette.py). The style guide's prompt blocks name",
+    "colours only as {role} (the name below), {role.cap} (capitalised) and {role.hex}; stitch.py draws the board's",
+    "flow arrows in the roles under arrows with those weights. name is the colour as the image model reads it (ink",
+    "is used as 'pure-<name>', so keep it one word). Every colour must be darker than module.json ink_threshold",
+    "(luminance). The board is always white. After a change: render_scenes.py sync (new scene prompts), title.py",
+    "build, characters.py build --force, and stitch.py board (Gate 2 again); a board built with other arrow",
+    "colours is refused as stale."
+  ],
+  "colours": {
+    "ink": {"name": "black", "hex": "#000000", "_use": "line work and most lettering"},
+    "main": {"name": "orange-red", "hex": "#FE4023", "_use": "main accent: emphasis words, arrows, key highlights"},
+    "second": {"name": "teal", "hex": "#3FBBA9", "_use": "second accent: secondary objects and light shading, less than main"}
+  },
+  "arrows": {"ink": 0.5, "main": 0.25, "second": 0.25},
+  "_arrows": "board flow arrows: each arrow's colour is picked with these weights (seeded per arrow; normalised to sum 1)"
+}

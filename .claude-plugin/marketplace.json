@@ -1,0 +1,15 @@
+{
+  "name": "scribeboard-higgsfield",
+  "owner": {
+    "name": "Chipp Walters"
+  },
+  "description": "The scribe-higgsfield plugin (github.com/chippwalters/scribeboard-higgsfield, built by packaging/build_plugin.py)",
+  "plugins": [
+    {
+      "name": "scribeboard-higgsfield",
+      "source": "./plugins/scribeboard-higgsfield",
+      "description": "Scribe videos with Higgsfield",
+      "version": "0.4.1"
+    }
+  ]
+}

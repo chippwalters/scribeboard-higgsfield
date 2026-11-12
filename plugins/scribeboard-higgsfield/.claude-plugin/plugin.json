@@ -1,0 +1,15 @@
+{
+  "name": "scribeboard-higgsfield",
+  "displayName": "Scribeboard (Higgsfield)",
+  "version": "0.4.1",
+  "description": "Story to narrated whiteboard video: pictures and narration through Higgsfield, approval pages, a per-run credit ledger with a budget cap and a hook-enforced credit guard.",
+  "author": {
+    "name": "Chipp Walters"
+  },
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "video",
+    "whiteboard",
+    "higgsfield"
+  ]
+}

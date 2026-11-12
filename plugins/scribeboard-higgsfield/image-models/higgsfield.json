@@ -1,0 +1,20 @@
+{
+  "_about": "The picture models the setup page (Gate 1) offers, in this order; default is preselected. Each run picks one; every scene, title card and character sheet of that run is drawn with it. params are sent to mcp__higgsfield__generate_image as they are, plus prompt, aspect_ratio, count, use_unlim and medias. credits = one 16:9 picture at these params, quoted with get_cost on 2026-11-11.",
+  "default": "nano_banana",
+  "models": [
+    {
+      "id": "nano_banana",
+      "label": "Nano Banana 2.1 (Google)",
+      "description": "Google's model. About 30% cheaper per picture than GPT Image (3 credits against 4.25).",
+      "params": {"model": "nano_banana_2_1", "resolution": "4k"},
+      "credits": 3
+    },
+    {
+      "id": "gpt_image",
+      "label": "GPT Image 2.5 (ChatGPT)",
+      "description": "OpenAI's model. Clean marker lines and reliable lettering; the model every earlier test run used.",
+      "params": {"model": "gpt_image_2_5", "resolution": "4k", "quality": "high", "variant": "flare"},
+      "credits": 4.25
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^mcp__.+__generate_(image|audio)(_batch)?$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PLUGIN_ROOT}/scripts/hf_guard.py",
+              "pre"
+            ],
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "^mcp__.+__generate_(image|audio)(_batch)?$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PLUGIN_ROOT}/scripts/hf_guard.py",
+              "post"
+            ],
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
