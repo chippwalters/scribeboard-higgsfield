@@ -2,6 +2,8 @@
 
 The scribeboard-higgsfield plugin turns a story into a narrated whiteboard video inside Claude Code. Claude writes the script, Higgsfield draws the pictures and speaks the narration, and your computer builds the drawing animation and the video. You approve the work at five points, called gates.
 
+**[Watch the 8-minute tutorial](TUTORIAL-VIDEO-URL)**: one story, from file to finished video, with every gate on screen.
+
 This guide has three parts:
 
 1. **Install:** one sentence to Claude; it does the rest and asks before installing anything.
@@ -61,15 +63,25 @@ Your settings go in `%LOCALAPPDATA%\scribe-higgsfield\settings.json`. Plugin upd
 ### What you need
 
 - **A story.** A text or Markdown file. Short is fine: a 70-word story makes a video of about 40 seconds.
-- **Higgsfield credits.** Each picture and each spoken sentence costs credits. A test run with three scenes, a title card and six sentences cost 21.1 credits.
+- **Higgsfield credits.** Each picture and each spoken sentence costs credits. Three test runs, retries included, all with Nano Banana pictures:
+
+| Run | Scenes | Sentences | Video | Credits |
+|---|---|---|---|---|
+| An early test story | 3 | 6 | 38 s | 21.1 |
+| The Waggle Dance (68 words), first run | 3 | 6 | 36 s | 18.5 |
+| The Waggle Dance, second run | 4 | 6 | 44 s | 24.3 |
 
 ### How every gate works
 
 1. A page opens in your browser.
 2. Answer its questions, then click **Copy answers**. The button refuses while a required question is blank.
-3. Paste the answers into Claude Code.
+3. Paste the answers into Claude Code and send them.
 
-Claude records your answers and moves on. Nothing that costs credits happens before the page that allows it.
+![The answers pasted into Claude Code's message box](images/paste-answers.png)
+
+Claude records your answers and moves on. If a required answer is missing, it asks you again rather than guessing. Nothing that costs credits happens before the page that allows it.
+
+If **Copy answers** doesn't reach your clipboard (some browsers block it), the page selects the answers for you: press **Ctrl+C**, then paste.
 
 ### 1. Start
 
@@ -87,21 +99,31 @@ Choose:
 - each character: an optional character sheet, from a description or from photos
 - your credit budget
 
+Each voice has a sample to play, and each style and set of colours has a sample card.
+
+![Gate 0: choosing the colours from their sample cards](images/gate0-start.png)
+
 ### 3. Gate 1: script and sound
 
-Claude records the narration in the voice you chose and makes any character sheets. The page plays the narration and shows each sheet in your colours. Approve the script and the sheets, or say what to change, and set the final budget.
+A writer splits the story into paragraphs and sentences; each paragraph becomes one scene. If you kept your words, a checker confirms that not one word changed. Claude records each sentence in the voice you chose and makes any character sheets. The page plays every recorded line and shows each sheet in your colours. Approve the script and the sheets, or say what to change, and set the final budget. The budget question now shows the estimate for this video.
+
+![Gate 1: each paragraph with its recorded lines](images/gate1-script.png)
 
 ### 4. Style: scene 1
 
 Higgsfield draws the first scene alone. Approve it, or say what to change. This picture sets the look for every other scene and for the title card.
 
+![The style page: scene 1, which every later picture copies](images/style-scene1.png)
+
 ### 5. Gate 2: pictures
 
-Higgsfield draws the remaining scenes and the title card. A separate reviewer checks each picture against the script before you see it. The page shows every scene on the board. Approve them, or ask for changes to any one.
+Higgsfield draws the remaining scenes and the title card. A separate reviewer checks each picture against the script before you see it. The page shows the title card and every scene, then each sentence's part of its picture: the part the pen draws while that sentence is spoken, with the rest greyed out. Approve them, or ask for changes to any one.
+
+![Gate 2: the part of scene 1 drawn during its first sentence](images/gate2-images.png)
 
 ### 6. Gate 3: video
 
-Claude builds the video. The page shows the full video, the board and one clip for each scene. Each clip is cut on the narration, so every sentence plays whole. Approve the video, or edit a scene. An edit names what to fix:
+Claude packs every drawing onto one board in story order and builds the video; neither step costs credits. The page shows the full video, the board and one clip for each scene. Each clip is cut on the narration, so every sentence plays whole. Approve the video, or edit a scene. An edit names what to fix:
 
 - **Camera:** the moves and framing
 - **Narration:** a sentence's words or how a word is said
@@ -109,13 +131,26 @@ Claude builds the video. The page shows the full video, the board and one clip f
 
 Each kind of edit goes to its own fix. If a sentence was recorded again after Gate 1, the page says so.
 
+![Gate 3: the finished video, drawing the story](images/gate3-video.png)
+
 ### Done
 
 The finished files are in the story's folder:
 
 - `videos/final.mp4`: the video
+- `videos/Scene-01.mp4`, `Scene-02.mp4`, …: one clip per scene
 - `videos/board.png`: every scene on one board
 - `credits.json`: every paid job and what it cost
+
+### Checks that run on their own
+
+Between the gates, the plugin checks its own work and redoes what fails. Anything still failing after its last try reaches you marked as flagged, for you to approve or change.
+
+- **Each recorded sentence.** A speech check listens to every take and compares it word for word with the script. A take that stops mid-word is asked for again with a spare word after it, which is then trimmed off. Each sentence gets up to three takes, plus one more if every take stopped short.
+- **Each picture.** A fresh reviewer, who never saw earlier attempts, checks it against the script: every drawing, every label, the spelling and the style. A picture that fails gets a written fix, and that fix goes into the next attempt. Nobody edits prompts by hand. Each scene gets up to five attempts.
+- **The title card.** It is checked automatically (enough ink, nothing near the edge) and then by its own reviewer.
+
+Retries cost credits like any other job and count against your budget. In the second Waggle Dance run, two narration retakes and two extra title attempts added 6.7 of its 24.3 credits.
 
 ## Credits
 

@@ -6,6 +6,8 @@ You give Claude a short story. Claude writes the script, Higgsfield draws the pi
 
 Version 0.4.1 · Windows · [Full guide](docs/GUIDE.md) · [Changelog](CHANGELOG.md) · [GPL-3.0 license](LICENSE)
 
+**[Watch the 8-minute tutorial](TUTORIAL-VIDEO-URL)**: one story, from file to finished video, with every gate on screen.
+
 ![Make a scribe video](docs/images/scribe-workflow.png)
 
 ## Install
@@ -47,7 +49,7 @@ Then pick your story file: a text or Markdown file, a paragraph or a few. Claude
 | **Gate 0: set up** | keep your words or let the writer rewrite them; the narrator's voice; the title; the image model, drawing style and colours; any characters; your credit budget |
 | **Gate 1: script and sound** | listen to the narration, approve the script and any character sheets, set the final budget |
 | **Style: scene 1** | approve the first picture, which sets the look of all the others |
-| **Gate 2: pictures** | check every scene on the board; approve or ask for changes |
+| **Gate 2: pictures** | check the title card, every scene, and the part of each picture drawn during each sentence; approve or ask for changes |
 | **Gate 3: video** | watch the video and each scene; approve, or fix the camera, the narration or a picture |
 
 The finished `final.mp4` and `board.png` land in your story's folder. The [guide](docs/GUIDE.md#make-a-video) has every step.
@@ -59,7 +61,7 @@ You pay Higgsfield in credits; the plugin itself is free to use. Measured prices
 - **A picture:** about 3 credits (Nano Banana 2.1 at 4K) or 4.25 (GPT Image 2.5 at 4K, high quality).
 - **A narrated sentence:** about 0.5 credits.
 
-A 38-second test video, with three scenes, a title card and six sentences, cost 21.1 credits, retries included.
+Test videos of 36 to 44 seconds, with three or four scenes, a title card and six sentences, cost 18.5 to 24.3 credits, retries included.
 
 **Your credits are guarded.** Every job is priced before it is paid for and booked against the budget you set; no job starts if it would take you past it. The plugin's hooks refuse any Higgsfield picture or audio call that its scripts did not book while a video is being made, and a job interrupted halfway is checked, never paid for twice.
 
@@ -85,6 +87,8 @@ Then restart Claude Code. Your settings and installed tools stay as they are.
 - **Check the setup any time:** run `/scribeboard-higgsfield:setup` or ask Claude to "check the scribeboard setup". It shows what is ready and installs nothing without asking.
 - **`python` opens the Microsoft Store:** that's Windows' placeholder, not Python. The setup installs a real Python 3.12 (or uses yours) and puts it first on your PATH; restart Claude Code afterwards.
 - **Claude can't see the Higgsfield tools:** restart Claude Code, run `/mcp`, pick **higgsfield** and sign in.
+- **Copy answers didn't reach the clipboard:** some browsers block it. The page then selects the answers for you; press Ctrl+C and paste them into Claude Code.
+- **A sentence or picture was made twice:** that's the plugin's own checks redoing work that failed (a narration take that stopped mid-word, a picture its reviewer rejected). Retries count against your budget like any other job.
 - **"denied" on a Higgsfield call:** that's the credit guard refusing a call no script booked. Ask Claude what the next step of the video is; it continues from where it stopped.
 
 ## Uninstall

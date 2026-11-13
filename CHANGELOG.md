@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased (docs)
+
+- **Guide:** a screenshot of every gate page and of the answers pasted into Claude Code; a new "Checks that run on their own" section (narration take checks, picture and title reviews, what retries cost); costs from three test runs; the finished scene clips listed.
+- **Fixed:** the guide and README said Gate 2 shows the board. It shows the title card, every scene and each sentence's part of its picture; the board is built after Gate 2.
+- **README:** troubleshooting for a blocked Copy answers and for work made twice; a link to the tutorial video.
+
 ## 0.4.1 (2026-11-12)
 
 - **Licensed under GPL-3.0-or-later.**
